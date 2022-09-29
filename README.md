@@ -13,7 +13,7 @@ A revived, modern looking version of the Estuary design framework
 
 
 
-> This project is <b>currently in progress</b> &  <b>not ready for production</b>. This repo is only public for the purpose of finding contributors to help with this project.  We are currently looking for contributors to help with improvents with CSS for this project if you are interested in seeing how you can help contribute to this project see the [to-do](.github/to-do.md) list.
+> This project is <b>currently in progress</b> &  <b>not ready for production</b>. This project is currently looking for contributors to help with improvements. If you are interested in seeing how you can help contribute, see the [to-do](.github/to-do.md) list.
   
   
   
