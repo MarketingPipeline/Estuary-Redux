@@ -1,12 +1,14 @@
-/* Estuary-Redux.css - Version 0.1
-
-Created originally by github.co/MarketingPipeline & github.com/carterfromsl
+/* Estuary-Redux.css - A revived version of the Estuary design framework. 
+- Version 0.1
+Created originally by github.com/MarketingPipeline
 More info can be found about this design framework here -
-https://github.com/MarketingPipeline/Estuary.css/
-
+https://github.com/MarketingPipeline/Estuary-Redux/
 A thank you to any contributors that helped make this project possible! 
+*/
 
-NOTE [carterfromsl]: I've optimized a portion of the HTML and CSS but a lot of it remains unaltered from the original pre-alpha version of Estuary and needs to be redone.
+
+/* DEVELOPER NOTES - 
+NOTE - [carterfromsl]: I've optimized a portion of the HTML and CSS but a lot of it remains unaltered from the original pre-alpha version of Estuary and needs to be redone.
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,900&display=swap");
