@@ -1,100 +1,6 @@
 
    
-      /// Calcuate Video Time(s) 
-      const interval = setInterval(function() {
-        // This calcuates the bottom video duration
-        vid = document.getElementById("video");
-        var nt = vid.currentTime * (100 / vid.duration);
-        curtimetext = document.getElementById("curtimetext");
-        durtimetext = document.getElementById("durtimetext");
-        var curmins = Math.floor(vid.currentTime / 60);
-        var cursecs = Math.floor(vid.currentTime - curmins * 60);
-        // DurHours is used for Ends At Function
-        var durhours = Math.floor(vid.currentTime / 3600);
-        // DurHours is used for Ends At Function
-        var durhours = Math.floor(vid.currentTime / 3600);
-        var durmins = Math.floor(vid.duration / 60);
-        var dursecs = Math.floor(vid.duration - durmins * 60);
-        if (cursecs < 10) {
-          cursecs = "0" + cursecs;
-        }
-        if (dursecs < 10) {
-          dursecs = "0" + dursecs;
-        }
-        if (curmins < 10) {
-          curmins = "0" + curmins;
-        }
-        if (durmins < 10) {
-          durmins = "0" + durmins;
-        }
-        curtimetext.innerHTML = curmins + ":" + cursecs;
-        durtimetext.innerHTML = durmins + ":" + dursecs;
-        // This is required for Ends At Hour
-        var EndsAt_Hours = durmins - curmins;
-        var EndsAt_Mins = durmins - curmins;
-        // Video Ends at Function 
-        var now = new Date();
-        var TwentyFourHour = now.getHours();
-        var nowHours = now.getHours();
-        var mid = 'PM';
-        if (TwentyFourHour < 12) {
-          mid = 'AM';
-        }
-        if (nowHours == 0) {
-          nowHours = 12;
-        }
-        var nowMinutes = now.getMinutes();
-        if (nowMinutes < 10) {
-          nowMinutes = "0" + nowMinutes;
-        }
-        var hours = durhours;
-        var addHours = parseFloat(hours) + parseFloat(nowHours);
-        var minutes = EndsAt_Mins;
-        var addMinutes = parseFloat(minutes) + parseFloat(nowMinutes);
-        if (hours == '') {
-          addHours = nowHours;
-        }
-        if (minutes == '') {
-          addMinutes = nowMinutes;
-        }
-        if (addMinutes >= 60) {
-          var newHours = ((minutes / 60));
-          if (newHours > 1) {
-            addMinutes = addMinutes % 60 + newHours * (newHours % 1);
-            addMinutes = Math.floor(addMinutes);
-            addHours = addHours + Math.floor(newHours);
-          } else {
-            addMinutes = addMinutes % 60 + newHours * (newHours % 1);
-            addMinutes = Math.floor(addMinutes);
-            addHours = addHours + 1;
-          }
-        }
-        if (addHours > 12) {
-          addHours = addHours % 12;
-          if (addHours == 0) {
-            addHours = 12;
-          }
-        }
-        if (addMinutes < 10) {
-          addMinutes = "0" + addMinutes;
-        }
-        var total = addHours + ":" + addMinutes;
-        Duration_Minutes = document.getElementById("minutes");
-        Duration_Hours = document.getElementById("hour");
-        Duration_Hours.innerHTML = addHours;
-        Duration_Minutes.innerHTML = addMinutes + mid;
-      }, 100);
-   
-      function Stop_Player() {
-        var AlbumCoverProgress = document.getElementById("album_cover_progress");
-        AlbumCoverProgress.style.opacity = "0";
-        var AlbumCoverContainer = document.querySelector('.AlbumCoverContainer');
-        AlbumCoverContainer.style.display = "none";
-        video.src = "";
-        VideoTitle.innerHTML = "";
-        VideoGenre.innerHTML = "";
-        video.pause();
-      }
+     
 
       var player_background = document.querySelector('.bg-video-wrap');
       var video = document.querySelector('#video');
@@ -123,11 +29,6 @@
         progressFill.style.width = `${newTime*100}%`;
         video.currentTime = newTime * video.duration;
       }
-      //PLAYER FUNCTIONS
-      // Hide Subtitles on Default
-      for (var i = 0; i < video.textTracks.length; i++) {
-        video.textTracks[i].mode = 'hidden';
-      }
 
       function togglePause() {
         if (video.paused) {
@@ -149,21 +50,8 @@
         Video_Progress_Time.style.top = "335px";
       }
       var NextBtn = document.querySelector('.next-chapter-button');
-      var i = 0;
 
-      function NextItem() {
-        var videoPlayer = document.getElementById('video');
-        i = i + 1; // increase i by one
-        // if we've gone too high, start from `0` again
-        ChangeVideoSource(VideoSources[i], VideoTitles[0], VideoGenres[0], AlbumCovers[0]);
-        UpdateVideoCardInfo(AlbumCovers[0], VideoTitles[0], VideoGenres[0]);
-        if (i === 0) {
-          videoPlayer.onended = function() {
-            Stop_Player();
-            window.open("#", "_self")
-          }
-        }
-      }
+
       var MovieInfoBtn_clicks = 0;
 
       function MovieInfo() {
@@ -188,21 +76,7 @@
         SubtitlesSettingsMenu.style.opacity = "0";
         SubtitlesSettingsMenu.style.zIndex = "0";
       }
-      // Subtitles 
-      // Detect Toggle Check On / Off  
-      function ToggleSubtitles() {
-        var Toggle = document.getElementById("SubtitlesToggleSwitch");
-        if (Toggle.checked) {
-          for (var i = 0; i < video.textTracks.length; i++) {
-            video.textTracks[i].mode = 'showing';
-          }
-        } else {
-          for (var i = 0; i < video.textTracks.length; i++) {
-            video.textTracks[i].mode = 'hidden';
-          }
-        }
-      }
-
+    
       function VideoSettings_Menu() {
         Video_Settings_Menu.style.display = "block";
       }
@@ -217,29 +91,9 @@
       MovieInfoBtn.addEventListener('click', MovieInfo);
       Video_Settings_Btn.addEventListener('click', VideoSettings_Menu);
       Video_Settings_Menu_Items.addEventListener('click', VideoSettings_Menu_Click);
-      video.addEventListener('timeupdate', updateProgress);
+   
       progressSlider.addEventListener('click', setProgress);
 
-      /// Video / Audio Playlist 
-      function VideoPlayList() {
-        var videoPlayer = document.getElementById('video');
-        if (VideoSources.length > 0) {
-          videoPlayer.onended = function() {
-            ChangeVideoSource(VideoSources[0], VideoTitles[0], VideoGenres[0], AlbumCovers[0]);
-            UpdateVideoCardInfo(AlbumCovers[0], VideoTitles[0], VideoGenres[0]);
-            if (VideoSources.length === 0) {
-              Stop_Player();
-              window.open("#", "_self")
-            } else {
-              videoPlayer.play();
-              VideoSources.shift();
-              VideoTitles.shift();
-              VideoGenres.shift();
-              AlbumCovers.shift();
-            }
-          }
-        }
-      }    
        
 
       
@@ -314,36 +168,6 @@
 
 
   ///// end of on - screen keyboard. 
-
-      function ChangeVideoSource(src, title, genre, albumCoverArt) {
-        var progressFill = document.querySelector('.progress-filled');
-        progressFill.style.width = `0px`
-        var Video = document.getElementById("video")
-        var VideoTitle = document.getElementById("VideoTitle")
-        var VideoGenre = document.getElementById("VideoGenre")
-        var AlbumCoverContainer = document.querySelector('.AlbumCoverContainer');
-        ResultVolumeSettings();
-        var PlayerOverlay = document.getElementById("VideoPlayer-Popup")
-        var AlbumCoverProgress = document.getElementById("album_cover_progress");
-        var AlbumCoverProgressSlider = document.getElementById("albumcoverprogress_filled");
-        if (albumCoverArt) {
-          var AlbumCoverImage = document.getElementById("AlbumArt").src = albumCoverArt;
-          document.getElementById("AlbumArtSong").innerHTML = title;
-          document.getElementById("AlbumArtArtist").innerHTML = genre;
-          AlbumCoverProgress.style.opacity = "1";
-          AlbumCoverContainer.style.display = "block";
-          AlbumCoverContainer.style.backgroundImage = "red";
-          PlayerOverlay.style.background = "linear-gradient(to right, rgb(6, 38, 52), rgb(7, 51, 65))";
-        } else {
-          AlbumCoverProgress.style.opacity = "0";
-          PlayerOverlay.style.background = " rgba(0, 0, 0, 0.7)";
-          AlbumCoverContainer.style.display = "none";
-          var AlbumCoverImage = document.getElementById("AlbumArt").src = "";
-        }
-        Video.src = src;
-        VideoTitle.innerHTML = title;
-        VideoGenre.innerHTML = genre;
-      }
 
       var KeyboardInput = (function(GetKeyboardInput) {
         return function() {
@@ -461,26 +285,8 @@
           }
         });
 
-        /// Video Player Functions
+        /// Video Player 
 
-        // Subtitles Settings Menu Functions
-
-        // Subtitles
-
-        // Detect Toggle Check On / Off
-
-        function ToggleSubtitles() {
-          var Toggle = document.getElementById("SubtitlesToggleSwitch");
-          if (Toggle.checked) {
-            for (var i = 0; i < video.textTracks.length; i++) {
-              video.textTracks[i].mode = "showing";
-            }
-          } else {
-            for (var i = 0; i < video.textTracks.length; i++) {
-              video.textTracks[i].mode = "hidden";
-            }
-          }
-        }
         // Show Subtitle Menus
 
         function ShowSubtitlesSettingsMenu() {
@@ -499,7 +305,6 @@
           SubtitlesSettingsMenu.style.zIndex = "0";
         }
 
-        //// End Of Subtitle
 
         /// Library Items
 
@@ -630,8 +435,6 @@
           var newValue = Volume_Amplification_Stepper.value;
           var videoplayer = document.getElementById("video");
 
-          amplifyMedia(videoplayer, newValue);
-
           var target = document.getElementById("Volume_Amplification_Stepper_Value");
           target.innerHTML = "<p>" + newValue + "</p>";
         };
@@ -640,33 +443,6 @@
           "input",
           VolumeAmplificationValue
         );
-
-        // Volume Amplification
-
-        function amplifyMedia(mediaElem, multiplier) {
-          var context = new (window.AudioContext || window.webkitAudioContext)(),
-            result = {
-              context: context,
-              gain: context.createGain(),
-              media: mediaElem,
-              amplify: function (multiplier) {
-                result.gain.gain.value = multiplier;
-              },
-              getAmpLevel: function () {
-                return result.gain.gain.value;
-              }
-            };
-
-          if (context.source == undefined) {
-            // Build element
-            result.source = context.createMediaElementSource(mediaElem);
-          }
-
-          result.source.connect(result.gain);
-          result.gain.connect(context.destination);
-          result.amplify(multiplier);
-          return result;
-        }
 
         // Notification
 
@@ -701,33 +477,5 @@
             setTimeout(function () {
               x.className = x.className.replace("show", "");
             }, 3000);
-          }
-        }
-        /// Add Items To Playlist
-
-        var VideoGenres, VideoSources, VideoTitles, AlbumCovers;
-
-        VideoSources = [];
-
-        VideoTitles = [];
-
-        VideoGenres = [];
-
-        AlbumCovers = [];
-
-        function addItemsToPlaylist(src, title, genre, albumCoverArt) {
-          VideoSources.push(src);
-          VideoTitles.push(title);
-          VideoGenres.push(genre);
-          if (albumCoverArt) {
-            AlbumCovers.push(albumCoverArt);
-          }
-        }
-
-        if (VideoSources.length > 0) {
-          i = i + 1; // increase i by one
-          i = i % VideoSources.length; // if we've gone too high, start from `0` again
-          if (i === 0) {
-            alert("done");
           }
         }
