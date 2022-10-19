@@ -695,6 +695,24 @@ target-page:target .section-title {
   width:100vw
 }
 
+
+.categories-scrollbar {
+  float: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.categories-scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.categories-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.categories-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: blue;
+}
+
  /* Sub - Categories Title */
 .categories header {
 padding-left: 10px;
@@ -708,7 +726,7 @@ padding-left: 10px;
  /* See all items link */
 .categories header a {
   position:absolute;
-  right:90px;
+  right:80px;
 }
 
 
@@ -3058,3 +3076,6 @@ video::cue(c) {
   height: 100%;
   width: 100%;
 }
+
+
+
