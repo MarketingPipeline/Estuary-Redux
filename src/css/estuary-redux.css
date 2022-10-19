@@ -680,7 +680,40 @@ target-page:target .section-title {
   text-decoration: none;
 }
 
+
+
+
+
+/* Library Section Categories */ 
+
+.categories {
+  position: relative;
+    /* margin-right: 44px; */
+    background: linear-gradient(to right, #062937, #073341), var(--theme-color-dark);
+   padding-left: 30px; 
+    left: -32px;
+  width:100vw
+}
+
+ /* Sub - Categories Title */
+.categories header {
+padding-left: 10px;
+  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+
+ /* See all items link */
+.categories header a {
+  position:absolute;
+  right:90px;
+}
+
+
 /* Library Swipe Cards */
+
 .swiper-overflow-container {
   width: 100%;
   z-index: 1;
@@ -755,6 +788,14 @@ target-page:target .section-title {
   opacity: 0.35;
   transform: skew(30deg) rotate(0deg);
 }
+
+
+    /* End of swipe cards */
+
+/* End of Library Catergories */
+
+
+
 
 /* Context Menu */
 /* Popup Overlay Default For Video Player & More */
