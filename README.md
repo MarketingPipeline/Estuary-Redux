@@ -3,9 +3,19 @@
 
 <p align="center">
 
-<img width="120" src="https://i.imgur.com/k7QUaB6.png" />
+  <img width="120" src="https://i.imgur.com/k7QUaB6.png" />
   <br>
 A revived, modern looking version of the Estuary design framework
+ <br>
+  <small> <b><i>Show your support!</i> </b></small>
+  <br>
+   <a href="https://github.com/MarketingPipeline/Estuary-Redux">
+  <img title="Star on GitHub" src="https://img.shields.io/github/stars/MarketingPipeline/Estuary-Redux.svg?style=social&label=Star">
+  </a>
+  <a href="https://github.com/MarketingPipeline/Estuary-Redux">
+    <img title="Fork on GitHub" src="https://img.shields.io/github/forks/MarketingPipeline/Estuary-Redux.svg?style=social&label=Fork">
+  </a>
+
 </p>
 
 
