@@ -3,7 +3,7 @@
 
 <p align="center">
 
-  <img width="120" src="https://user-images.githubusercontent.com/86180097/182456561-ee7e1084-38a1-4aba-a70f-511cdae549c3.png" />
+    <img width="120" src="https://i.imgur.com/k7QUaB6.png" />
   <br>
 A revived, modern looking version of the Estuary design framework
 </p>
@@ -16,8 +16,9 @@ A revived, modern looking version of the Estuary design framework
 > This project is <b>currently in progress</b> &  <b>not ready for production</b>. This project is currently looking for contributors to help with improvements. If you are interested in seeing how you can help contribute, see the [to-do](.github/to-do.md) list.
   
   
+
   
-## Demo <img height="20px" src="https://im4.ezgif.com/tmp/ezgif-4-8ab294c963.png">
+## Demo <img height="20px" src="https://user-images.githubusercontent.com/86180097/196882869-d38fe649-8e33-44fe-ae91-b1f9cd5f1c3e.png">
 
 > WARNING: This is a work in progress, you will find a LOT of responsiveness issues when viewing the demo! 
 
