@@ -49,7 +49,7 @@
         playBtn.style.display = "none";
         Video_Progress_Time.style.top = "335px";
       }
-      var NextBtn = document.querySelector('.next-chapter-button');
+      
 
 
       var MovieInfoBtn_clicks = 0;
@@ -87,7 +87,6 @@
       SubtitleBtn.addEventListener('click', ShowSubtitlesSettingsMenu);
       pauseBtn.addEventListener('click', togglePause);
       playBtn.addEventListener('click', togglePlay);
-      NextBtn.addEventListener('click', NextItem);
       MovieInfoBtn.addEventListener('click', MovieInfo);
       Video_Settings_Btn.addEventListener('click', VideoSettings_Menu);
       Video_Settings_Menu_Items.addEventListener('click', VideoSettings_Menu_Click);
