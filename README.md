@@ -3,7 +3,7 @@
 
 <p align="center">
 
-    <img width="120" src="https://i.imgur.com/k7QUaB6.png" />
+<img width="120" src="https://i.imgur.com/k7QUaB6.png" />
   <br>
 A revived, modern looking version of the Estuary design framework
 </p>
