@@ -1,0 +1,35 @@
+h1 {
+    font-weight: 900;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  button {
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    background: transparent;
+    transition: var(--side-transition);
+    background: var(--theme-color-dark);
+    padding: 0.5em 1em;
+    outline: 1px solid transparent;
+    margin: 0.5em 0;
+  }
+  
+  button:hover {
+    text-shadow: 0 0 0.5em var(--body-color);
+    outline-color: currentcolor;
+  }
+  
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }

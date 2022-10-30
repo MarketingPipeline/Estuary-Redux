@@ -1,41 +1,50 @@
+// Wait for the DOM to completely render
+document.addEventListener('DOMContentLoaded', windowLoaded)
 
-   
+function windowLoaded() {
+  /*
+    selectors object will query DOM elements 
+  */
+  const selectors = {
+      player_background: document.querySelector('.bg-video-wrap'),
+      video: document.querySelector('#video'),
+      pauseBtn: document.querySelector('.pause-button'),
+      playBtn: document.querySelector('.play-button'),
+      Video_Settings_Menu: document.querySelector('.video-settings-menu'),
+      Video_Settings_Menu_Items:  document.querySelector('.video-settings-menu'),
+      Video_Settings_Btn: document.querySelector('.movie-settings-button'),
+      Video_Paused_Display:document.querySelector('.Display-Video-Paused'),
+      Video_Progress_Time : document.querySelector('.play-time'),
+      MovieInfoSection : document.querySelector('.movie-info-header'),
+      MovieInfoBtn : document.querySelector('.movie-info-button'),
+      SubtitleBtn : document.querySelector('.movie-subtitle-button'),
+      progressSlider : document.querySelector('.progress'),
+      progressFill : document.querySelector('.progress-filled'),
+      AlbumCoverMode_progressSlider : document.querySelector('.album_cover_progress'),
+      AlbumCoverMode_progressSliderFill : document.querySelector('#albumcoverprogress_filled'),
+      clocks :document.querySelector(".clock")
+  } 
+       
      
 
-      var player_background = document.querySelector('.bg-video-wrap');
-      var video = document.querySelector('#video');
-      var pauseBtn = document.querySelector('.pause-button');
-      var playBtn = document.querySelector('.play-button');
-      var Video_Settings_Menu = document.querySelector('.video-settings-menu');
-      var Video_Settings_Menu_Items = document.querySelector('.video-settings-menu');
-      var Video_Settings_Btn = document.querySelector('.movie-settings-button');
-      var Video_Paused_Display = document.querySelector('.Display-Video-Paused');
-      var Video_Progress_Time = document.querySelector('.play-time');
-      var MovieInfoSection = document.querySelector('.movie-info-header');
-      var MovieInfoBtn = document.querySelector('.movie-info-button');
-      var SubtitleBtn = document.querySelector('.movie-subtitle-button');
-      var progressSlider = document.querySelector('.progress');
-      var progressFill = document.querySelector('.progress-filled');
-      var AlbumCoverMode_progressSlider = document.querySelector('.album_cover_progress');
-      var AlbumCoverMode_progressSliderFill = document.getElementById('albumcoverprogress_filled');
-
       function updateProgress(e) {
-        progressFill.style.width = `${video.currentTime/video.duration*100}%`;
-        AlbumCoverMode_progressSliderFill.style.width = `${video.currentTime/video.duration*100}%`;
+        selectors.progressFill.style.width = 
+            `${selectors.video.currentTime/selectors.video.duration*100}%`; 
+
+        selectors.AlbumCoverMode_progressSliderFill.style.width = 
+          `${selectors.video.currentTime/selectors.video.duration*100}%`;
       }
 
       function setProgress(e) {
-        const newTime = e.offsetX / progressSlider.offsetWidth;
-        progressFill.style.width = `${newTime*100}%`;
-        video.currentTime = newTime * video.duration;
+        const newTime = e.offsetX / selectors.progressSlider.offsetWidth;
+        selectors.progressFill.style.width = `${newTime*100}%`;
+        selectors.video.currentTime = newTime * selectors.video.duration;
       }
 
       function togglePause() {
-        if (video.paused) {
-          video.play();
-        } else {
-          video.pause();
-        }
+        const {video, playBtn, Video_Paused_Display, Video_Progress_Time, pauseBtn } = selectors
+        video.paused ? video.play : video.pause()
+
         pauseBtn.style.display = "none";
         Video_Paused_Display.style.display = "block";
         playBtn.style.display = "block";
@@ -43,6 +52,7 @@
       }
 
       function togglePlay() {
+       const {video, playBtn, Video_Paused_Display, Video_Progress_Time, pauseBtn } = selectors
         video.play();
         pauseBtn.style.display = "block";
         Video_Paused_Display.style.display = "none";
@@ -52,7 +62,7 @@
       
 
 
-      var MovieInfoBtn_clicks = 0;
+      let MovieInfoBtn_clicks = 0;
 
       function MovieInfo() {
         MovieInfoSection.style.display = "block";
@@ -63,37 +73,34 @@
           opacity: 1;
           MovieInfoBtn_clicks = 0;
         }
+
       }
       // Subtitles Settings Menu Functions
       function ShowSubtitlesSettingsMenu() {
-        var SubtitlesSettingsMenu = document.getElementById("SubtitlesSettingsMenu");
+        const SubtitlesSettingsMenu = document.querySelector("#SubtitlesSettingsMenu");
         SubtitlesSettingsMenu.style.opacity = "1";
         SubtitlesSettingsMenu.style.zIndex = "1000";
       }
 
-      function HideSubtitlesSettingsMenu() {
-        var SubtitlesSettingsMenu = document.getElementById("SubtitlesSettingsMenu");
-        SubtitlesSettingsMenu.style.opacity = "0";
-        SubtitlesSettingsMenu.style.zIndex = "0";
-      }
+    
     
       function VideoSettings_Menu() {
-        Video_Settings_Menu.style.display = "block";
+        selectors.Video_Settings_Menu.style.display = "block";
       }
 
       function VideoSettings_Menu_Click() {
-        Video_Settings_Menu.style.display = "none";
+        selectors.Video_Settings_Menu.style.display = "none";
       }
-      SubtitleBtn.addEventListener('click', ShowSubtitlesSettingsMenu);
-      pauseBtn.addEventListener('click', togglePause);
-      playBtn.addEventListener('click', togglePlay);
-      MovieInfoBtn.addEventListener('click', MovieInfo);
-      Video_Settings_Btn.addEventListener('click', VideoSettings_Menu);
-      Video_Settings_Menu_Items.addEventListener('click', VideoSettings_Menu_Click);
-   
-      progressSlider.addEventListener('click', setProgress);
-
-       
+      
+      (() => {
+        selectors.SubtitleBtn.addEventListener('click', ShowSubtitlesSettingsMenu);
+        selectors.pauseBtn.addEventListener('click', togglePause);
+        selectors.playBtn.addEventListener('click', togglePlay);
+        selectors.MovieInfoBtn.addEventListener('click', MovieInfo);
+        selectors.Video_Settings_Btn.addEventListener('click', VideoSettings_Menu);
+        selectors.Video_Settings_Menu_Items.addEventListener('click', VideoSettings_Menu_Click); 
+        selectors.progressSlider.addEventListener('click', setProgress);
+      })()
 
       
       //on screen keyboard
@@ -107,7 +114,7 @@
       //CAPSLOCK
       const caps = function() {
         capsLock.classList.toggle('active');
-        if (checkCaps == false) {
+        if (!checkCaps) {
           for (let i = 0; i < alphabet.length; i++) {
             let getAlpha = alphabet[i].textContent;
             const up = getAlpha.toUpperCase();
@@ -123,9 +130,10 @@
           checkCaps = false;
         }
       };
+
       //Lights
       const blink = function() {
-        if (checkLights == false) {
+        if (!checkLights) {
           key.forEach((key) => key.classList.add("lightOn"));
           checkLights = true;
         } else {
@@ -181,42 +189,6 @@
         document.getElementById("SearchedText").innerHTML = ("No search results for   " + KeyboardInput());
       };
    
-      /*-- Quick n' dirty css toggler function --*/
-        function toggleActive(t) {
-          document.getElementById(t).classList.toggle("active");
-        }
-
-        // Clock
-        window.onload = function () {
-          clock();
-          function clock() {
-            var now = new Date();
-            var TwentyFourHour = now.getHours();
-            var hour = now.getHours();
-            var min = now.getMinutes();
-            var mid = "PM";
-            if (min < 10) {
-              min = "0" + min;
-            }
-            if (hour > 12) {
-              hour = hour - 12;
-            }
-            if (hour == 0) {
-              hour = 12;
-            }
-            if (TwentyFourHour < 12) {
-              mid = "AM";
-            }
-
-            var clocks = document.getElementsByClassName("clock");
-
-            for (var i = 0; i < clocks.length; i++) {
-              clocks[i].innerHTML = hour + ":" + min + " " + mid;
-            }
-
-            setTimeout(clock, 1000);
-          }
-        };
 
         // Right Click Menu
 
@@ -284,16 +256,23 @@
           }
         });
 
-        /// Video Player 
+   // automaticall invoke clock function.
+     (function clock(){
+        const now = new Date(); 
+        const { clocks } = selectors
+        let [TwentyFourHour, hour, min, mid] = 
+            [now.getHours(), now.getHours(), now.getMinutes(), 'PM'] 
 
-        // Show Subtitle Menus
+            min < 10 ? min = `0${min}`: min 
+            hour > 12 ? hour = hour - 12 : hour 
+            hour === 0 ? hour = 12: hour
+            TwentyFourHour < 12 ? mid= "AM": mid
+            clocks.innerHTML = `${hour}:${min} ${mid}`
 
-        function ShowSubtitlesSettingsMenu() {
-          var SubtitlesSettingsMenu = document.getElementById("SubtitlesSettingsMenu");
-          SubtitlesSettingsMenu.style.display = "block";
-          SubtitlesSettingsMenu.style.opacity = "1";
-          SubtitlesSettingsMenu.style.zIndex = "1000";
-        }
+            setTimeout(clock, 1000);
+        
+      })()
+     
 
         // Hide Subttle Menu
         function HideSubtitlesSettingsMenu() {
@@ -401,6 +380,8 @@
           var video = document.getElementById("video");
 
           var newValue = VolumeStepper.value;
+
+          // I would opt to use switch cases instead of so many if statements
           if (newValue == 0) {
             video.volume = 1.0;
           } else {
@@ -415,8 +396,12 @@
           } else {
             var NegativeVolume = "";
           }
+
           var target = document.getElementById("VolumeStepper_Value");
           target.innerHTML = "<p>" + newValue + NegativeVolume + "</p>";
+
+
+
         };
 
         VolumeStepper.addEventListener("input", rangeValue);
@@ -452,12 +437,10 @@
           var x = document.getElementById("Notification_1");
 
           function ChangeBackgroundColors() {
-            if (background) {
-              x.style.borderLeft = `75px solid ${background}`;
-            } else {
-              x.style.borderLeft = `75px solid #1085a8`;
-            }
+             background ? x.style.borderLeft = `75px solid ${background}` : 
+                x.style.borderLeft = `75px solid #1085a8`;
           }
+
           if (Notification_Count > 1) {
             setTimeout(function () {
               Default_Time + 9000;
@@ -478,3 +461,24 @@
             }, 3000);
           }
         }
+}
+
+function HideSubtitlesSettingsMenu() {
+    const SubtitlesSettingsMenu = document.querySelector("#SubtitlesSettingsMenu");
+    SubtitlesSettingsMenu.style.opacity = "0";
+    SubtitlesSettingsMenu.style.zIndex = "0";
+}
+
+
+// Show Subtitle Menus
+function ShowSubtitlesSettingsMenu() {
+    var SubtitlesSettingsMenu = document.getElementById("SubtitlesSettingsMenu");
+    SubtitlesSettingsMenu.style.display = "block";
+    SubtitlesSettingsMenu.style.opacity = "1";
+    SubtitlesSettingsMenu.style.zIndex = "1000";
+}
+  
+/*-- Quick n' dirty css toggler function --*/
+function toggleActive(t) {
+    document.getElementById(t).classList.toggle("active");
+}

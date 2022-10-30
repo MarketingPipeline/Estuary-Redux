@@ -1,0 +1,10 @@
+@use './functions' as f;
+
+@mixin htmlfontSize{
+    @media only screen and (max-width: f.getBreakPoint('--tablet')) {
+        html {
+            font-size: 50%;
+        }
+    }
+}
+

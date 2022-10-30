@@ -1,0 +1,42 @@
+#Notification_1 {
+  visibility: hidden;
+  position: absolute;
+  width: fit-content;
+  block-size: fit-content;
+  right: 400px;
+  padding: 16px;
+  background-color: #14141b;
+  color: white;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 21;
+  right: 1%;
+  top: 20px;
+  border-left: 75px solid #1085a8;
+}
+
+#Notification_1 i {
+  float: left;
+  left: -45px;
+  top: 40%;
+  position: absolute;
+  width: fit-content;
+  block-size: fit-content;
+}
+
+#Notification_1 b {
+  font-size: 24px;
+}
+
+#Notification_1.show {
+  visibility: visible;
+  animation: Notification_FadeIn 1s, Notification_FadeOut 0.5s 2.5s;
+  -webkit-animation: Notification_FadeIn 0.5s, Notification_FadeOut 0.5s 2.5s;
+}
+
+
+.checkicon i {
+  object-fit: fill;
+  font-size: 20px;
+}

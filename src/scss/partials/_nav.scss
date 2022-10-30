@@ -1,0 +1,276 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6rem;
+  height: 100vh;
+  z-index: 10;
+  color: var(--body-color-alt, white);
+  transition: var(--side-transition);
+}
+
+.navbar.active {
+  width: var(--side-width);
+}
+
+.navbar nav {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  background: var(--theme-bg);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+}
+
+.navbar ul {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: var(--side-width-min);
+  list-style: none;
+}
+
+.navbar-menu {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.navbar .navbar-menu {
+  scrollbar-width: none;
+}
+
+.navbar.active .navbar-menu {
+  scrollbar-width: thin;
+}
+
+.navbar:not(.active) .navbar-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar.active .navbar-menu::-webkit-scrollbar {
+  width: 12px;
+}
+
+.navbar-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-menu a {
+  display: block;
+  width: 100%;
+  height: var(--side-width-min);
+  line-height: var(--side-width-min);
+}
+
+.navbar-menu a::after {
+  content: attr(title);
+  position: absolute;
+  left: var(--side-width-min);
+  pointer-events: none;
+  opacity: 0;
+  transition: inherit;
+  width: 0;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.navbar:not(.active) .navbar-menu a::after {
+  position: fixed;
+}
+
+.navbar:not(.active) .navbar-menu a:hover::after {
+  background: var(--theme-bg);
+  padding-left: 2rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.active .navbar-menu a::after,
+.navbar-menu a:hover::after {
+  opacity: 1;
+  padding: 0 1rem;
+  pointer-events: all;
+  width: calc(var(--side-width) - var(--side-width-min));
+}
+
+.navbar i,
+.navbar a {
+  position: relative;
+  transition: var(--side-transition);
+}
+
+.icon-button:hover,
+.navbar a:focus-visible,
+.navbar a:hover {
+  color: var(--body-color);
+  text-shadow: 0 0 0.5em var(--body-color-alt);
+}
+
+.icon-button::before,
+.navbar a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: transparent;
+  background: var(--theme-color);
+  transition: inherit;
+  z-index: -1;
+}
+
+.icon-button:not(:hover)::before,
+.navbar-top a::before {
+  right: 0;
+  left: unset;
+}
+
+.navbar-top:not(:hover) a::before,
+.navbar-top a:hover::before {
+  right: unset;
+  left: 0;
+}
+
+.icon-button:hover::before,
+.navbar a:hover::before {
+  width: 100%;
+}
+
+.navbar .navbar-top:hover,
+.navbar.active .navbar-top,
+.navbar-menu a:hover::before {
+  width: var(--side-width);
+}
+
+.navbar-menu i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--side-width-min);
+  height: 100%;
+  text-align: center;
+  line-height: inherit;
+  z-index: 2;
+}
+
+.navbar-top {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, var(--side-width-min));
+  top: 0;
+  left: 0;
+  width: var(--side-width-min);
+  height: var(--side-width-min);
+  z-index: 3;
+  background: var(--theme-bg);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: var(--side-transition);
+}
+
+.icon-button,
+.navbar-top a {
+  display: block;
+  width: var(--side-width-min);
+  text-align: center;
+  line-height: var(--side-width-min);
+}
+
+.icon-button {
+  transition: var(--side-transition);
+  color: var(--body-color-alt);
+  position: relative;
+  z-index: 9;
+}
+
+.navbar-inner .icon-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3rem;
+}
+
+.navbar-inner {
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--side-width));
+  height: 100%;
+  width: var(--side-width);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--theme-bg);
+  transition: var(--side-transition);
+  padding-top: var(--side-width-min);
+}
+
+.navbar-inner.active {
+  opacity: 1;
+  left: var(--side-width-min);
+  pointer-events: auto;
+}
+
+.active .navbar-inner.active {
+  left: var(--side-width);
+}
+
+.navbar-inner ul {
+  list-style: none;
+}
+
+.navbar-inner li {
+  color: var(--body-color-alt);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  line-height: var(--side-width-min);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 1em;
+}
+
+.navbar-inner li:hover {
+  background: var(--theme-color);
+}
+
+.navbar-inner li.label {
+  background: var(--theme-bg-alt);
+  cursor: default;
+  font-weight: bold;
+  color: var(--body-color);
+}
+
+.estuary > main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100vh;
+  background: var(--theme-gradient);
+  transition: var(--side-transition);
+  z-index: 1;
+}
+
+.navbar + main {
+  width: calc(100% - var(--side-width-min));
+  float: right;
+}
+
+@media only screen and (min-width: 767px) {
+.navbar.active + main {
+  width: calc(100% - var(--side-width));
+  }
+}

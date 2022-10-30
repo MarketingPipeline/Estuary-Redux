@@ -1,0 +1,139 @@
+@-webkit-keyframes Notification_FadeIn {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes Notification_FadeIn {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes Notification_FadeOut {
+  from {
+    top: 20px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes Notification_FadeOut {
+  from {
+    top: 20px;
+    opacity: 1;
+  }
+
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+@keyframes animatetop {
+  from {
+    top: -30px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes progress_slider_animation {
+  0% {
+    opacity: 0.6;
+    width: 5%;
+  }
+
+  20% {
+    width: 30%;
+  }
+
+  30% {
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+
+@keyframes slideMovieInfoIn {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideMovieInfoOut {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+}
+
+@keyframes lights {
+  0% {
+    color: red;
+    box-shadow: 0 5px 15px red;
+  }
+
+  25% {
+    color: goldenrod;
+    box-shadow: 0 5px 15px goldenrod;
+  }
+
+  50% {
+    color: blue;
+    box-shadow: 0 5px 15px blue;
+  }
+
+  75% {
+    color: rgb(35, 201, 201);
+    box-shadow: 0 5px 15px rgb(35, 201, 201);
+  }
+
+  100% {
+    color: red;
+    box-shadow: 0 5px 15px red;
+  }
+}

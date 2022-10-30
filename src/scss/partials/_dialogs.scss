@@ -1,0 +1,114 @@
+
+/* Dialog Menu 1 - Progress Menu */
+.Dialog-Menu-1 {
+  position: absolute;
+  z-index: 1337;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  font: 1em "Doppio One", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 -1px 1px #333, 0 1px 1px #000, -1px 0px 2px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  animation: flattr 5s infinite ease-in forwards;
+  animation-delay: 1.5s;
+  user-select: none;
+}
+
+.Dialog-Menu-1-title {
+  position: relative;
+  background: rgba(71, 160, 255, 0.8);
+  background: linear-gradient(
+    top,
+    rgba(71, 160, 255, 0.8) 0%,
+    rgba(0, 49, 99, 0.6) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 2px solid rgba(30, 30, 30, 0.5);
+  padding: 8px;
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.6);
+}
+
+.Dialog-Menu-1-title:after {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 70px;
+  line-height: 75px;
+  right: 8px;
+  top: -50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 8px rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.Dialog-Menu-1-content {
+  background: rgba(26, 25, 34, 8);
+  border: 1px solid rgba(26, 25, 34, 0.3);
+  border-top: none;
+  padding: 2%;
+}
+
+.Dialog-Menu-1-content p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.Dialog-Menu-1-content hr {
+  background: rgba(255, 255, 255, 0.7);
+  height: 2px;
+  border: none;
+}
+
+.Dialog-Menu-1-slider {
+  height: 20px;
+  width: 90%;
+  margin: 0 5%;
+  margin-top: 3%;
+  background: #000;
+  border: 3px solid white;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.Dialog-Menu-1-slider span[role="position"] {
+  background: cyan;
+  height: 100px;
+  display: inline-block;
+  animation-delay: 1.5s;
+}
+
+.ProgressBar_Animation {
+  animation: progress_slider_animation 5s ease-out forwards;
+}
+
+
+
+.Dialog-Menu-1_Btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #ffffff;
+  font-family: Doppio One;
+  font-size: 15px;
+  font-weight: 100;
+  padding: 10px;
+  background-color: #0f84a5;
+  text-shadow: 1px 1px 20px #000000;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.Dialog-Menu-1_Btn:hover {
+  background: #13a3cb;
+}

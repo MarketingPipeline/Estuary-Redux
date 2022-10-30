@@ -1,0 +1,33 @@
+$theme-color-dark: #072e3c;
+$main-font: "Work Sans", "Arial", sans-serif;
+
+:root {
+  --theme-color: #1085a8;
+  --theme-color-alt: #2fb8e1;
+  --theme-color-dark: #072e3c;
+  --theme-gradient: linear-gradient(to right, #062937, #073341),
+    var(--theme-color-dark);
+  --theme-bg: #101518;
+  --theme-bg-alt: #000;
+  --body-color: #fff;
+  --body-color-alt: rgba(255, 255, 255, 0.7);
+  --main-font: "Work Sans", "Arial", sans-serif;
+
+  --side-width: 24rem;
+  --side-width-min: 6rem;
+  --side-transition: all 0.3s ease;
+}
+
+
+$breakpoints: (
+  --tablet: 767px,
+  --desktop: 1400px,
+  --mobile: 375px,
+);
+
+
+$sizes: (
+  --side-width: 24rem,
+  --side-width-min: 6rem,
+  --side-transition: all 0.3s ease,
+)
