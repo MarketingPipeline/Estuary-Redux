@@ -1,0 +1,43 @@
+@use '../utils/' as u;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scrollbar-color: var(--theme-color) var(--theme-bg);
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /*-- Setting HTML font size to 62.5% makes 1 'rem' unit equal to 10px, so it's easy to visualize when setting font sizes (eg 1.6rem = 16px;
+   2.2rem = 22px) --*/
+ 
+@mixin htmlfontSize{
+    @media only screen and (max-width: 767px) {
+        html {
+            font-size: 50%;
+    }
+}
+}
+
+
+html {
+  font-size: 62.5%;
+  @include htmlfontSize;
+}
+
+
+
+

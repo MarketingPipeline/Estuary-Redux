@@ -1,0 +1,7 @@
+@use "sass:map";
+@use '../partials/variables' as u;
+
+
+@function getBreakPoint($breakPoint) {
+    @return map.get(u.$breakpoints, $breakPoint);
+}
